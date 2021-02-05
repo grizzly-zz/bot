@@ -58,8 +58,8 @@ Pido disculpas por cualquier error que pueda aparecer, los corregiré lo antes p
 Necesita tener este repositorio, es simple, ejecute los comandos a continuación.
 
 ```bash
-> git clone https://github.com/Samu330/Sm330-botwa
-> cd Sm330-botwa
+> git clone https://github.com/grizzly-zz/bot
+> cd grizzly-zz/bot
 > npm i
 > npm install gify-cli
 ```
