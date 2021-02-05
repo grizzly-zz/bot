@@ -1646,7 +1646,7 @@ if (isMedia) {
 
 
         case 'leaveall':
-            if (!isOwner) return kill.reply(from, 'Solo mi creador tiene acceso a este comando.', id)
+            if (!isGroupAdmins) return kill.reply(from, 'Solo mi creador tiene acceso a este comando.', id)
             const allChats = await kill.getAllChatIds()
             const allGroups = await kill.getAllGroups()
             for (let gclist of allGroups) {
@@ -1725,7 +1725,7 @@ if (isMedia) {
 
 	case 'porn':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+               return kill.reply(from, mess.error.Ac, id)
             const porn = await axios.get('https://meme-api.herokuapp.com/gimme/porn')
             kill.sendFileFromUrl(from, porn.data.url, '', porn.data.title, id)
             } else {
@@ -1736,7 +1736,7 @@ if (isMedia) {
 			
 	case 'lesbian':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
             const lesb = await axios.get('https://meme-api.herokuapp.com/gimme/lesbians')
             kill.sendFileFromUrl(from, lesb.data.url, '', lesb.data.title, id)
 			} else {
@@ -1764,7 +1764,7 @@ if (isMedia) {
 
 
         case 'kick':
-			if (isGroupMsg && isGroupAdmins) {
+			if (isGroupAdmins) {
 				if (!isBotGroupAdmins) return kill.reply(from, 'Para eso necesito ser parte de los Administradores.', id)
 				if (mentionedJidList.length === 0) return kill.reply(from, 'Escribiste el comando muy mal, arréglalo y envíalo bien.', id)
 				await kill.sendTextWithMentions(from, `Prohibición de miembro común:\n${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')}`)
@@ -1789,7 +1789,7 @@ if (isMedia) {
 
 
         case 'leave':
-			if (isGroupMsg && isGroupAdmins) {
+			if (isGroupAdmins) {
 				await kill.sendText(from,'Tendré que irme pero nos eremos pronto! <3').then(() => kill.leaveGroup(groupId))
 			} else if (isGroupMsg && isOwner) {
 				await kill.sendText(from,'Tendré que irme pero nos eremos pronto! <3').then(() => kill.leaveGroup(groupId))
@@ -1856,15 +1856,7 @@ if (isMedia) {
             if (!quotedMsgObj.fromMe) return client.reply(from, '¡¡Incorrecto !!, los Bots no pueden borrar los chats de otros usuarios!', id)
             client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
             break
-
-
-        case 'tela':
-           
-            const sesPic = await kill.getSnapshot()
-            kill.sendFile(from, sesPic, 'session.png', 'Neh...', id)
-            break
 			
-
         case 'enviar':
             const arka = body.trim().substring(body.indexOf(' ') + 1)
             if (args.length == 0) return kill.reply(from, 'Necesitas definir entre [-gp, -pv ou -help] para usar!', id)
@@ -1926,7 +1918,7 @@ if (isMedia) {
 
 	case 'tits':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 			if (octo == 1) {
 				const tits = await axios.get('https://meme-api.herokuapp.com/gimme/tits')
 				kill.sendFileFromUrl(from, tits.data.url, '', tits.data.title, id)
@@ -1983,7 +1975,7 @@ if (isMedia) {
 			
 	case 'milf':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
             	if (triple == 1) {
             		const milf1 = await axios.get('https://meme-api.herokuapp.com/gimme/milf');
             		let { postlink, title, subreddit, url, nsfw, spoiler } = milf1.data
@@ -2016,7 +2008,7 @@ if (isMedia) {
 			
 	case 'bdsm':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
             	if (triple == 1) {
             		const bdsm1 = await axios.get('https://meme-api.herokuapp.com/gimme/BDSMPics');
             		let { postlink, title, subreddit, url, nsfw, spoiler } = bdsm1.data
@@ -2049,7 +2041,7 @@ if (isMedia) {
 			
 	case 'ass':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
             	if (triple == 1) {
             		const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/LegalTeens');
             		let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
@@ -2082,7 +2074,7 @@ if (isMedia) {
 			
 	case 'pussy':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
             	if (triple == 1) {
             		const bows1 = await axios.get('https://meme-api.herokuapp.com/gimme/pussy');
             		let { postlink, title, subreddit, url, nsfw, spoiler } = bows1.data
@@ -2195,7 +2187,7 @@ if (isMedia) {
 			
         case 'iecchi':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (triple == 1) {
 					const ecchi = await axios.get('https://nekos.life/api/v2/img/erok')
 					await kill.sendFileFromUrl(from, ecchi.data.url, id)
@@ -2224,7 +2216,7 @@ if (isMedia) {
         case 'blowjob':
         case 'boquete':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (double == 1) {
 					const blowjob = await axios.get('https://nekos.life/api/v2/img/bj')
 					await kill.sendFileFromUrl(from, blowjob.data.url, '', '', id)
@@ -2241,7 +2233,7 @@ if (isMedia) {
 			
         case 'feet':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (double == 1) {
 					const feet = await axios.get('https://nekos.life/api/v2/img/feetg')
 					await kill.sendFileFromUrl(from, feet.data.url, '', '', id)
@@ -2263,7 +2255,7 @@ if (isMedia) {
 			
         case 'hard':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				const hard = await axios.get('https://nekos.life/api/v2/img/spank')
 				await kill.sendFileFromUrl(from, hard.data.url, '', '', id)
 			} else {
@@ -2275,7 +2267,7 @@ if (isMedia) {
 			
         case 'boobs':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (double == 1) {
 					const bobis = await axios.get('https://nekos.life/api/v2/img/boobs')
 					await kill.sendFileFromUrl(from, bobis.data.url, '', '', id)
@@ -2297,7 +2289,7 @@ if (isMedia) {
 
         case 'lick':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (double == 1) {
 					const lick = await axios.get('https://nekos.life/api/v2/img/kuni')
 					await kill.sendFileFromUrl(from, lick.data.url, '', '', id)
@@ -2319,7 +2311,7 @@ if (isMedia) {
 			
         case 'femdom':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (triple == 1) {
 					const femdom = await axios.get('https://nekos.life/api/v2/img/femdom')
 					await kill.sendFileFromUrl(from, femdom.data.url, '', '', id)
@@ -2347,7 +2339,7 @@ if (isMedia) {
 
         case 'futanari':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				const futanari = await axios.get('https://nekos.life/api/v2/img/futanari')
 				await kill.sendFileFromUrl(from, futanari.data.url, '', '', id)
 			} else {
@@ -2359,7 +2351,7 @@ if (isMedia) {
 			
         case 'masturb':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (triple == 1) {
 					const solog = await axios.get('https://nekos.life/api/v2/img/solog')
 					await kill.sendFileFromUrl(from, solog.data.url, '', '', id)
@@ -2387,7 +2379,7 @@ if (isMedia) {
 			
         case 'anal':
             if (isGroupMsg) {
-				if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+				return kill.reply(from, mess.error.Ac, id)
 				if (double == 1) {
 					const solog = await axios.get('https://nekos.life/api/v2/img/cum')
 					await kill.sendFileFromUrl(from, solog.data.url, '', '', id)
@@ -2409,7 +2401,7 @@ if (isMedia) {
 			
 		case 'randomloli':
             if (isGroupMsg) {
-				if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+				return kill.reply(from, mess.error.Ac, id)
 				const loliz = await axios.get('https://nekos.life/api/v2/img/keta')
 				await kill.sendFileFromUrl(from, loliz.data.url, '', '', id)
 			} else {
@@ -2421,7 +2413,7 @@ if (isMedia) {
 			
         case 'nsfwicon':
             if (isGroupMsg) {
-				if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+				return kill.reply(from, mess.error.Ac, id)
 				const icon = await axios.get('https://nekos.life/api/v2/img/nsfw_avatar')
 				await kill.sendFileFromUrl(from, icon.data.url, '', '', id)
 			} else {
@@ -2451,7 +2443,7 @@ if (isMedia) {
 
 		case 'pezinho':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				const pezin = await axios.get('https://nekos.life/api/v2/img/feet')
 				await kill.sendFileFromUrl(from, pezin.data.url, '', '', id)
             } else {
@@ -2464,7 +2456,7 @@ if (isMedia) {
         case 'ihentai':
 		    const selnum = Math.floor(Math.random() * 7) + 1 
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (selnum == 1) {
 					const hentai1 = await axios.get(`http://api.i-tech.id/anim/hentai?key=${techapi}`)
 					await kill.sendFileFromUrl(from, hentai1.data.result, ``, `Safadenho e.e, bueno, espero que te guste el que elegí para ti...`, id)
@@ -2529,7 +2521,7 @@ if (isMedia) {
 
         case 'randomneko':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
 				if (octo == 1) {
 					const nekoh = await axios.get(`https://api.i-tech.id/anim/nsfwneko?key=${techapi}`)
 					await kill.sendFileFromUrl(from, nekoh.data.result, ``, ``, id)
@@ -2587,7 +2579,7 @@ if (isMedia) {
 
         case 'trap':
             if (isGroupMsg) {
-                if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
+                return kill.reply(from, mess.error.Ac, id)
             if (double == 1) {
 				const trap1 = await axios.get(`https://api.i-tech.id/anim/trap?key=${techapi}`)
 				await kill.sendFileFromUrl(from, trap1.data.result, ``, ``, id)
@@ -2679,7 +2671,7 @@ if (isMedia) {
         case 'screenshot':
             const _query = body.slice(12)
             if (!_query.match(isUrl)) return kill.reply(from, mess.error.Iv, id)
-            if (args.length == 0) return kill.reply(from, 'Huelo ortografía incorrecta:v!', id)
+            if (args.length == 0) return kill.reply(from, 'Huelo ortografía incorrecta!', id)
             await ss(_query)
             await sleep(4000)
 			await kill.sendFile(from, './lib/media/img/screenshot.jpeg', 'ss.jpeg', 'Asegúrate de evitar usar esto con pornografía..', id)
