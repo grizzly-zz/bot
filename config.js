@@ -65,7 +65,7 @@ module.exports = kconfig = async (kill, message) => {
         const isGroupAdmins = isGroupMsg ? groupAdmins.includes(sender.id) : false
         const isBotGroupAdmins = isGroupMsg ? groupAdmins.includes(botNumber + '@c.us') : false
 	const chats = (type === 'chat') ? body : (type === 'image' || type === 'video') ? caption : ''
-        const ownerNumber = '529984907794' // MUDE ISSO PARA O SEU NUMERO
+        const ownerNumber = '56978387820 el numero del admin del bot'
         const isOwner = sender.id === ownerNumber
         global.pollfile = 'poll_Config_'+chat.id+'.json'
         global.voterslistfile = 'poll_voters_Config_'+chat.id+'.json'
@@ -137,14 +137,14 @@ module.exports = kconfig = async (kill, message) => {
 	            
         // ANTI FLOOD PRIVADO
         if (isCmd && msgFilter.isFiltered(from) && !isGroupMsg) {
-        await kill.reply(from, '¡Ei! Espere 10 segundos antes de usar otros comandos!', id)
+        await kill.reply(from, 'Hey mas lento cerebrito, me saturo con mucha informacion (espera un poco pls uwu)', id)
 		return console.log(color('FLOOD AS', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'de', color(pushname))
 		}
 		
 		
 		// ANTI FLOOD GRUPOS
         if (isCmd && msgFilter.isFiltered(from) && isGroupMsg) {
-		await kill.reply(from, 'Ei! Espere 10 segundos antes de usar otros comandos!', id)
+		await kill.reply(from, 'Hey mas lento cerebrito, me saturo con mucha informacion (espera un poco pls uwu)', id)
 		return console.log(color('FLOOD AS', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'de', color(pushname), 'em', color(name || formattedTitle))
 		}
 		
@@ -976,8 +976,8 @@ if (isMedia) {
 
         case 'halfonso':
 			try {
-				const halfonso = await axios.get(`http://simsumi.herokuapp.com/api?text=${body.slice(6)}&lang=pt`)
-				if (halfonso.data.success == '') {
+				const iris = await axios.get(`http://simsumi.herokuapp.com/api?text=${body.slice(6)}&lang=pt`)
+				if (iris.data.success == '') {
 					console.log('Request falhou, usando respostas locais...')
 					let rndrl = fs.readFileSync('./lib/reply.txt').toString().split('\n')
 					let repl = rndrl[Math.floor(Math.random() * rndrl.length)]
@@ -985,7 +985,7 @@ if (isMedia) {
 					console.log(resmf)
 					kill.reply(from, resmf, id)
 				} else {
-					await kill.reply(from, halfonso.data.success, id)
+					await kill.reply(from, iris.data.success, id)
 				}
 			} catch (error) {
 					console.log('Request falhou, usando respostas locais...')
@@ -1576,7 +1576,7 @@ if (isMedia) {
 
 
         case 'everyone':
-			if (isGroupMsg && isGroupAdmins) {
+			if (isGroupAdmins) {
 				const groupMem = await kill.getGroupMembers(groupId)
 				let hehe = `🛑╔══✪〘 HOLA TODOS MARCADOS 〙✪══\n⚠╠✪〘 Asunto: ${body.slice(10)} 〙✪═\n`
 				for (let i = 0; i < groupMem.length; i++) {
