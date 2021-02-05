@@ -1035,7 +1035,7 @@ if (isMedia) {
 			
 			
         case 'wallpaper':
-            if (args.length == 0) return kill.reply(from, 'Necesitas decirme que quieres de fondo de pantalla!', id)
+            if (args.length == 0) return kill.reply(from, 'Necesitas decirme que quieres de fondo de pantalla guap@ ', id)
             const quere = body.slice(6)
             const wallp = await wall(quere)
             console.log(wallp)
@@ -1053,14 +1053,7 @@ if (isMedia) {
 			kill.reply(from, 'Si no responde, solo espera, es raro que deje Internet ~Smitten guy sabe~, pero si sucedió, fue algo importante..', id)
             break
 
-
-        case 'donate':
-		case 'doar':
-            kill.sendText(from, donate, id)
-            kill.sendContact(from, 'wa.me/+529984907794')
-            break
-
-
+			
         case 'roll':
             const dice = Math.floor(Math.random() * 6) + 1
             await kill.sendStickerfromUrl(from, 'https://www.random.org/dice/dice' + dice + '.png')
@@ -1625,7 +1618,7 @@ if (isMedia) {
             const isdonogroup = sender.id === chat.groupMetadata.owner
 			if (!isGroupMsg) return kill.reply(from, mess.error.Gp, id)
             if (!isdonogroup) return kill.reply(from, 'Solo el propietario del grupo puede usar esto.', id)
-            if (!isBotGroupAdmins) return kill.reply(from, 'Necesito ser una ademira', id)
+            if (!isBotGroupAdmins) return kill.reply(from, 'Necesito ser un admin', id)
             const allMem = await kill.getGroupMembers(groupId)
             for (let i = 0; i < allMem.length; i++) {
                 if (groupAdmins.includes(allMem[i].id)) {
@@ -1639,7 +1632,7 @@ if (isMedia) {
 
 
         case 'leaveall':
-            if (!isOwner) return kill.reply(from, 'Solo mi creador tiene acceso a este comando.', id)
+            if (!isGroupAdmins) return kill.reply(from, 'Solo mi creador tiene acceso a este comando.', id)
             const allChats = await kill.getAllChatIds()
             const allGroups = await kill.getAllGroups()
             for (let gclist of allGroups) {
@@ -1784,7 +1777,7 @@ if (isMedia) {
         case 'leave':
 			if (!isGroupAdmins) {
 				await kill.sendText(from,'Tendré que irme pero nos eremos pronto! <3').then(() => kill.leaveGroup(groupId))
-			} else if (isOwner) {
+			} else if (!isGroupAdmins) {
 				await kill.sendText(from,'Tendré que irme pero nos eremos pronto! <3').then(() => kill.leaveGroup(groupId))
 			} else if (isGroupMsg) {
 				await kill.reply(from, 'Lo siento, solo los administradores y mi propietario pueden usar este comando...', id)
@@ -2198,7 +2191,6 @@ if (isMedia) {
 			break
 			
 
-        case 'blowjob':
         case 'boquete':
             if (isGroupMsg) {
                 if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
@@ -2615,7 +2607,7 @@ if (isMedia) {
 
 		case 'rolette':
             if (double == 1) {
-            await kill.reply(from, 'Bang, ella disparó y tú moriste, se acabó el juego.', id)
+            await kill.reply(from, 'Bang, el/ella disparó y tú moriste, se acabó el juego.', id)
             } else if (double == 2) {
             await kill.reply(from, 'Te quedas vivo, pasa el turno.', id)
 			}
