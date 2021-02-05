@@ -98,7 +98,7 @@ module.exports = kconfig = async (kill, message) => {
                 Ad: '¡Errores! No pude agregarlo, podría deberse a la limitación de agregar o mis errores.',
                 Go: 'Por qué, solo el propietario de un grupo puede usar este tipo de comando.',
 		Kl: '¡Ups! Ese es solo mi creador, no puedes acceder.',
-		Ga: 'Solo los administradores pueden usarlo, así que chaoo jaja!',
+		Ga: 'Solo los administradores pueden usarlo, así que cagaste XD',
 		Gp: 'Lo siento, pero este es un comando para grupos.🕳💦.',
 		Ac: 'Solo los grupos que permiten contenido +18 pueden usar comandos como este, si usted es el propietario y desea esto, use /nsfw enable o use en PRIV.',
 		Ba: 'Estimado administrador, si desea que use estos comandos, debe permitirme ser admin😙!',
@@ -245,29 +245,22 @@ module.exports = kconfig = async (kill, message) => {
             try {
 				if (isGroupMsg) {
 					if (!isNsfw) return kill.reply(from, mess.error.Ac, id)
-					if (args.length == 0) return kill.reply(from, 'Olvidaste insertar un enlace de xvideos?', id)
+					if (args.length == 0) return kill.reply(from, 'Olvidaste insertar un enlace de xvideos aweonao', id)
 					const xv = await axios.get(`https://mnazria.herokuapp.com/api/porndownloadxvideos?url=${body.slice(9)}`)
 					const xvidw = xv.data.mp4
 					await kill.sendFileFromUrl(from, xvidw, 'video.mp4', 'Hmmm travieso', id)
 				} else {
-					if (args.length == 0) return kill.reply(from, 'Olvidaste insertar un enlace de xvideos?', id)
+					if (args.length == 0) return kill.reply(from, 'Olvidaste insertar un enlace de xvideos aweonao', id)
 					const xv = await axios.get(`https://mnazria.herokuapp.com/api/porndownloadxvideos?url=${body.slice(9)}`)
 					const xvidw = xv.data.mp4
 					await kill.sendFileFromUrl(from, xvidw, 'video.mp4', 'Hmmm travieso', id)
 				}
 			} catch (error) {
-				kill.reply(from, 'No se pudo descargar porno!', id)
+				kill.reply(from, 'No se pudo descargar porno 😔 ', id)
 			}
             break
 			
 			
-		case 'anonymod':
-    await kill.reply(from, 'Algunos videos del canal de mi bro DEIVID\n\nWhatsApp ANONYMOUS V.06 oFc 100% inmune\n\nhttps://youtu.be/tOE_ywldS_Q\n\nComo modificar un WA prt-1\n\nhttps://youtu.be/WdWsvY3xGPc\n\nWhAtsApp BusSines Golden/13\n\nhttps://youtu.be/JqSHAWlGhDY\n\nNumero virtual +48 método efectivo\n\nhttps://youtu.be/7GOss7AaJ88\n\nNumero virtual +1 EE.Uu (ANONYMOUS DEIVID)\n\nhttps://youtu.be/D1G6hI1mLs4\n\nCreando con pixelLab (ANONYMOUS DEIVID)\n\nhttps://youtu.be/so1y1g-MPZ4\n\nSu video mas reciente:\n\nhttps://youtu.be/hy4od9BT-tA\n\nEspero y lo apoyes🤗', id)
-    break
-	
-	    case 'samu330':
-    await kill.reply(from, '｡☆✼★━━━━━━━━━━━━★✼☆｡\n\nHola!😀\n\nTe gustaria apoyarme?\n\nSolo unete a mi grupo de WhatsApp: https://chat.whatsapp.com/ELeHAmX3P6j1xy1qNRjEXR\n\n* ◄ ◊ ► ◄ ◊ ► ◄ ◊ ► ◄ ◊ ► ◄ ◊ ►*\n\nO puedes suscribirte a mi canal para saber como instalar un Bot: https://www.youtube.com/channel/UCqPXxG2ZdDe_ugOqMHDRMqg\n\n✩｡:*•.─────  ❁ ❁  ─────.•*:｡✩\n\nO seamos amigos en facebook: https://facebook.com/tupapi.samu330', id)
-    break	
 			
 		case 'about':
 			await kill.sendFile(from, './lib/media/img/iris.png', 'iris.png', sobre, id)
@@ -534,7 +527,7 @@ if (isMedia) {
 		case 'img':
             if (quotedMsg && quotedMsg.type == 'sticker') {
                 const mediaData = await decryptMedia(quotedMsg)
-                kill.reply(from, `Podrias esperar porfavor? esto lleva un poco de tiempo👑`, id)
+                kill.reply(from, `Podrias esperar porfavor? esto lleva un poco de tiempo uwu`, id)
                 const stickerImage = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
                 await kill.sendFile(from, stickerImage, '', 'Disfruta, aquí tienes tu foto! :D', id)
 			} else if (!quotedMsg) return kill.reply(from, `Lo siento, esto es solo para stickers...`, id)
@@ -579,7 +572,7 @@ if (isMedia) {
                 .then((quote) => kill.reply(from, `➸ *Frase* : ${quote}\n➸ *Personaje* : ${skya_.chara}\n➸ *Anime* : ${skya_.anime}`, id))
 			} else if (quote == 3) {
 			const aiquote = await axios.get("http://inspirobot.me/api?generate=true")
-            await kill.sendFileFromUrl(from, aiquote.data, 'quote.jpg', '~No entendí nada, pero sigamos el juego...~\n\n❤️' , id )
+            await kill.sendFileFromUrl(from, aiquote.data, 'quote.jpg', '~No entendí nada, pero sigamos el juego n.n...~\n\n❤️' , id )
 			}
             break
 
@@ -743,7 +736,7 @@ if (isMedia) {
 			const fbdw = fb.data.result.sd
             await kill.sendFileFromUrl(from, fbdw, 'video.mp4', 'Excelente video!\n~Pero que diablos paso?...~', id)
 			.catch(() => {
-						kill.reply(from, 'Dios mío, algún tipo de fuerza maligna me impidió terminar el comando!', id)
+						kill.reply(from, 'perdón, me aweone y no terminé el comando XD', id)
 						})
 					break
 
@@ -757,7 +750,7 @@ if (isMedia) {
 					var m3ti = rest.data.title
 					var m3tu = rest.data.thumb
 					var m3fo = rest.data.ext
-					await kill.sendFileFromUrl(from, m3tu, '', `Titulo: ${m3ti}\nFormato:${m3fo}\n\nEspero averlo echo bien, ahora solo espera a que el audio se envie!`, id)
+					await kill.sendFileFromUrl(from, m3tu, '', `Titulo: ${m3ti}\nFormato:${m3fo}\n\nEspero averlo echo bien👉👈, ahora solo espera a que el audio se envie!`, id)
 					await kill.sendFileFromUrl(from, m3pa, '', '', id)
                 			})
 				break
@@ -771,7 +764,7 @@ if (isMedia) {
 					var tmp4 = rest.data.title
 					var m4tu = rest.data.thumb
 					var m4fo = rest.data.ext
-					await kill.sendFileFromUrl(from, m4tu, '', `Titulo: ${tmp4}\nFormato:${m4fo}\n\nEspero averlo echo bien, ahora solo espera que se envie el video!`, id)
+					await kill.sendFileFromUrl(from, m4tu, '', `Titulo: ${tmp4}\nFormato:${m4fo}\n\nEspero averlo echo bien👉👈, ahora solo espera que se envie el video!`, id)
 					await kill.sendFileFromUrl(from, mp4, `video.mp4`, tmp4, id)
                 			})
 				break
@@ -981,10 +974,10 @@ if (isMedia) {
             break
 			
 
-        case 'iris':
+        case 'halfonso':
 			try {
-				const iris = await axios.get(`http://simsumi.herokuapp.com/api?text=${body.slice(6)}&lang=pt`)
-				if (iris.data.success == '') {
+				const halfonso = await axios.get(`http://simsumi.herokuapp.com/api?text=${body.slice(6)}&lang=pt`)
+				if (halfonso.data.success == '') {
 					console.log('Request falhou, usando respostas locais...')
 					let rndrl = fs.readFileSync('./lib/reply.txt').toString().split('\n')
 					let repl = rndrl[Math.floor(Math.random() * rndrl.length)]
@@ -992,7 +985,7 @@ if (isMedia) {
 					console.log(resmf)
 					kill.reply(from, resmf, id)
 				} else {
-					await kill.reply(from, iris.data.success, id)
+					await kill.reply(from, halfonso.data.success, id)
 				}
 			} catch (error) {
 					console.log('Request falhou, usando respostas locais...')
@@ -1764,7 +1757,7 @@ if (isMedia) {
 
 
         case 'kick':
-			if (isGroupMsg && isGroupAdmins) {
+			if (!isGroupAdmins) {
 				if (!isBotGroupAdmins) return kill.reply(from, 'Para eso necesito ser parte de los Administradores.', id)
 				if (mentionedJidList.length === 0) return kill.reply(from, 'Escribiste el comando muy mal, arréglalo y envíalo bien.', id)
 				await kill.sendTextWithMentions(from, `Prohibición de miembro común:\n${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')}`)
@@ -1789,9 +1782,9 @@ if (isMedia) {
 
 
         case 'leave':
-			if (isGroupMsg && isGroupAdmins) {
+			if (!isGroupAdmins) {
 				await kill.sendText(from,'Tendré que irme pero nos eremos pronto! <3').then(() => kill.leaveGroup(groupId))
-			} else if (isGroupMsg && isOwner) {
+			} else if (isOwner) {
 				await kill.sendText(from,'Tendré que irme pero nos eremos pronto! <3').then(() => kill.leaveGroup(groupId))
 			} else if (isGroupMsg) {
 				await kill.reply(from, 'Lo siento, solo los administradores y mi propietario pueden usar este comando...', id)
@@ -1857,14 +1850,6 @@ if (isMedia) {
             client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
             break
 
-
-        case 'tela':
-           
-            const sesPic = await kill.getSnapshot()
-            kill.sendFile(from, sesPic, 'session.png', 'Neh...', id)
-            break
-			
-
         case 'enviar':
             const arka = body.trim().substring(body.indexOf(' ') + 1)
             if (args.length == 0) return kill.reply(from, 'Necesitas definir entre [-gp, -pv ou -help] para usar!', id)
@@ -1903,15 +1888,7 @@ if (isMedia) {
             }
             kill.sendTextWithMentions(from, hih, id)
             break
-			
-			
-        case 'encerrar':
-			kill.reply(from, 'Solicitud recibida!\nMe apagaré en 5 segundos.', id)
-		    await sleep(5000)
-			await kill.kill()
-            break
-
-
+	
         /*case 'loli':
             const loli = await get.get('http://mhankbarbars.herokuapp.com/api/randomloli').json()
             kill.sendFileFromUrl(from, loli.result, 'loli.jpeg', 'Vejo que você é um homem/mulher de cultura.', id)
@@ -2674,19 +2651,7 @@ if (isMedia) {
             q7 = Math.floor(Math.random() * 890) + 1;
             await kill.sendFileFromUrl(from, 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + q7 + '.png', 'Pokemon.png', '', id)
             break		
-
-
-        case 'screenshot':
-            const _query = body.slice(12)
-            if (!_query.match(isUrl)) return kill.reply(from, mess.error.Iv, id)
-            if (args.length == 0) return kill.reply(from, 'Huelo ortografía incorrecta:v!', id)
-            await ss(_query)
-            await sleep(4000)
-			await kill.sendFile(from, './lib/media/img/screenshot.jpeg', 'ss.jpeg', 'Asegúrate de evitar usar esto con pornografía..', id)
-            .catch(() => kill.reply(from, `Error de captura de pantalla del sitio ${_query}`, id))
-            break
-			
-			
+				
 		case 'ship':
             lvak = body.trim().split(' ')
 			if (args.length == 2) {
@@ -2751,7 +2716,7 @@ if (isMedia) {
 			const timed = moment(t * 1000).format('DD/MM/YY HH:mm:ss')
 			const allin = `Hola usuario "@${sender.id}"!\n\nMe lleve ${processTime(t, moment())} segundos para responder.\n\nAhora son exactamente "${timed}".\nAqui abajito estan todas mis funciones.\n`
             kill.sendTextWithMentions(from, allin + help, id)
-            kill.reply(from, '💢De otros comandos tenemos...\n\n*/Admins* _❌es para administradores._\n\n*/Kill* _🖤🖤es solo para mi dueño._\n\n*/Adult* _🍆🍆es el menú de comandos para adultos😈._\n\n*/Down* _⚠es el menú de descarga de música y video._\n\n*/termux* _🚧Comandos para termux🚧_', id)
+            kill.reply(from, '💢De otros comandos tenemos...\n\n*/Admins* _❌es para administradores._\n\n*/Kill* _🖤🖤es solo para mi dueño._\n\n*/Adult* _🍆🍆es el menú de comandos para adultos😈._\n\n*/Down* _⚠es el menú de descarga de música y video._\n\n*', id)
             break
 
 
